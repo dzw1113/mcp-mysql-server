@@ -34,7 +34,8 @@ The server requires the following environment variables to be set in your MCP se
         "MYSQL_HOST": "your_host",
         "MYSQL_USER": "your_user",
         "MYSQL_PASSWORD": "your_password",
-        "MYSQL_DATABASE": "your_database"
+        "MYSQL_DATABASE": "your_database",
+        "MYSQL_PORT": "your_port"
       }
     }
   }
@@ -54,7 +55,8 @@ use_mcp_tool({
     host: "localhost",
     user: "your_user",
     password: "your_password",
-    database: "your_database"
+    database: "your_database",
+    port: 3306
   }
 });
 ```
@@ -107,6 +109,19 @@ use_mcp_tool({
   tool_name: "describe_table",
   arguments: {
     table: "users"
+  }
+});
+```
+
+### 6. alter_table
+Alter table structure using SQL ALTER TABLE statement.
+
+```typescript
+use_mcp_tool({
+  server_name: "mysql",
+  tool_name: "alter_table",
+  arguments: {
+    sql: "ALTER TABLE users ADD COLUMN age INT"
   }
 });
 ```

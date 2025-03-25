@@ -10,6 +10,7 @@ startCommand:
       - mysqlUser
       - mysqlPassword
       - mysqlDatabase
+      - mysqlPort
     properties:
       mysqlHost:
         type: string
@@ -23,6 +24,9 @@ startCommand:
       mysqlDatabase:
         type: string
         description: MySQL database name
+      mysqlPort:
+        type: number
+        description: MySQL port
   commandFunction:
     # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
     |-
@@ -33,7 +37,8 @@ startCommand:
         MYSQL_HOST: config.mysqlHost,
         MYSQL_USER: config.mysqlUser,
         MYSQL_PASSWORD: config.mysqlPassword,
-        MYSQL_DATABASE: config.mysqlDatabase
+        MYSQL_DATABASE: config.mysqlDatabase,
+        MYSQL_PORT: config.mysqlPort
       }
     })
   exampleConfig:

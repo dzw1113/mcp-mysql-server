@@ -5,3 +5,5 @@ build/
 .DS_Store
 .idea/
 .vscode/
+.history
+package-lock.json

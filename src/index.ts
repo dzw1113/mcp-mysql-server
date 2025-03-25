@@ -18,6 +18,7 @@ interface DatabaseConfig {
   user: string;
   password: string;
   database: string;
+  port: number;
 }
 
 // Type guard for error objects
@@ -117,6 +118,11 @@ class MySQLServer {
               database: {
                 type: 'string',
                 description: 'Database name',
+              },
+              port: {
+                type: 'number',
+                description: 'Database port',
+                default: 3306,
               },
             },
             required: ['host', 'user', 'password', 'database'],
@@ -230,6 +236,7 @@ class MySQLServer {
       user: args.user,
       password: args.password,
       database: args.database,
+      port: args.port || 3306
     };
 
     try {
